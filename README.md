@@ -67,8 +67,21 @@ Tabela 2
 Nome da tabela: turma
 Colunas da tabela: id_turma (INT), código_turma (VARCHAR), nome_turma (VARCHAR)
 
-----------------
-
+```
+CREATE TABLE turma(
+	id_turma SERIAL PRIMARY KEY,
+	codigo_turma VARCHAR(20) NOT NULL,
+	nome_turma VARCHAR(100) NOT NULL
+)
+```
+```
+CREATE TABLE aluno(
+	id_aluno SERIAL PRIMARY KEY,
+	nome_aluno VARCHAR(100) NOT NULL,
+	aluno_alocado BOOL,
+	id_turma INTEGER REFERENCES turma(id_turma)
+)
+```
 
 7) Agora que você demonstrou que consegue ser mais do que um simples usuário do banco de dados, mostre separadamente cada um dos códigos DML necessários para cumprir cada uma das etapas a seguir:
 
