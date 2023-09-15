@@ -1,4 +1,5 @@
-# ada_1006_banco_de_dados
+# Avaliação Bancos de Dados I
+Aluno: Darlinne Hubert Palo Soto
 
 ## Modelagem e normalização de bancos de dados relacionais
 
