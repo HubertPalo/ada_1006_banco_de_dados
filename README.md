@@ -74,26 +74,34 @@ Colunas da tabela: id_turma (INT), código_turma (VARCHAR), nome_turma (VARCHAR)
 
 a) Inserir pelo menos duas turmas diferentes na tabela de turma;
 
+```
 INSERT INTO turma(codigo_turma, nome_turma)
 VALUES
 ('T001', 'Turma 1'),
 ('T002', 'Turma 2')
+```
 
 b) Inserir pelo menos 1 aluno alocado em cada uma destas turmas na tabela aluno (todos com NULL na coluna aluno_alocado);
 
+```
 INSERT INTO aluno(nome_aluno, aluno_alocado, id_turma)
 VALUES
 ('Aluno 1 emturma 1', NULL, 1),
 ('Aluno 2 emturma 2', NULL, 2)
+```
 
 c) Inserir pelo menos 2 alunos não alocados em nenhuma turma na tabela aluno (todos com NULL na coluna aluno_alocado);
 
+```
 INSERT INTO aluno(nome_aluno, aluno_alocado, id_turma)
 VALUES
 ('Aluno 3 semturma', NULL, NULL),
 ('Aluno 4 semturma', NULL, NULL)
+```
 
 d) Atualizar a coluna aluno_alocado da tabela aluno, de modo que os alunos associados a uma disciplina recebam o valor True e alunos não associdos a nenhuma disciplina recebam o falor False para esta coluna.
 
+```
 UPDATE aluno
 SET aluno_alocado = CASE WHEN id_turma IS NULL THEN FALSE ELSE TRUE END
+```
