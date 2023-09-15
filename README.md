@@ -45,12 +45,43 @@ Assim, usando o subconjunto da "structured query language" chamado de DQL, produ
 
 3) Liste os nomes de todos os produtos que custam mais de 100 reais, ordenando-os primeiramente pelo preço e em segundo lugar pelo nome. Use alias para mostrar o nome da coluna nome como "Produto" e da coluna preco como "Valor". A resposta da consulta não deve mostrar outras colunas de dados.
 
+```
+SELECT
+	nome as "Produto",
+	preco as "Valor"
+FROM produtos
+WHERE preco > 100
+ORDER BY "Valor" ASC, "Produto" ASC
+```
+
 4) Liste todos os ids e preços de produtos cujo preço seja maior do que a média de todos os preços encontrados na tabela "produtos".
+
+```
+SELECT id, preco FROM produtos
+WHERE preco > (SELECT AVG(preco) FROM produtos)
+```
 
 5) Para cada categoria, mostre o preço médio do conjunto de produtos a ela associados. Caso uma categoria não tenha nenhum produto a ela associada, esta categoria não deve aparecer no resultado final. A consulta deve estar ordenada pelos nomes das categorias.
 
-
----------------------
+```
+SELECT
+	cat.nome as categoria,
+	products_grouped.avg_preco as preco_medio
+FROM
+(
+	SELECT
+		AVG(prod.preco) as avg_preco,
+		produtos_categorias.categoria_id as cat_id
+	FROM
+	produtos_categorias
+	LEFT JOIN produtos as prod
+	ON produtos_categorias.produto_id = prod.id
+	GROUP BY produtos_categorias.categoria_id
+) as products_grouped
+LEFT JOIN categorias as cat
+ON products_grouped.cat_id = cat.id
+ORDER BY cat.nome ASC
+```
 
 ## Inserções, alterações e remoções de objetos e dados em um banco de dados postgres
 Você está participando de um processo seletivo para trabalhar como cientista de dados na Ada, uma das maiores formadoras do país em áreas correlatadas à tecnologia. Dividido em algumas etapas, o processo tem o objetivo de avaliar você nos quesitos Python, Machine Learning e Bancos de Dados. Ainda que os dois primeiros sejam o cerne da sua atuação no dia-a-dia, considera-se que Bancos de Dados também constituem um requisito importante e, por isso, esta etapa pode ser a oportunidade que você precisava para se destacar dentre os seus concorrentes, demonstrando um conhecimento mais amplo do que os demais.
