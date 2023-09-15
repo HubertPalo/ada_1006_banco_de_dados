@@ -18,8 +18,11 @@ Nome da tabela: produto
 Colunas: codigo_produto, nome_produto, descricao_produto, codigo_tipo_produto, tipo_produto, codigo_diretor_responsavel, nome_diretor_responsavel, email_diretor_responsavel
 1) Ainda sem fazer normalizações, apresente o modelo conceitual deste esboço oferecido pelo gestor, destacando atributos chaves e multivalorados, caso existam, e apresentando também a cardinalidade dos relacionamentos.
 
+![alt text](https://github.com/HubertPalo/ada_1006_banco_de_dados/blob/main/modelo_conceitual.png?raw=true)
+
 2) Agora apresente um modelo lógico que expresse as mesmas informações e relacionamentos descritos no modelo original, mas decompondo-os quando necessário para que sejam respeitadas as 3 primeiras formas normais. Destaque atributos chaves e multivalorados, caso existam, e apresente também a cardinalidade dos relacionamentos.
 
+![alt text](https://github.com/HubertPalo/ada_1006_banco_de_dados/blob/main/modelo_logico.png?raw=true)
 
 
 ## Consultas SQL simples e complexas em um banco de dados postgres
